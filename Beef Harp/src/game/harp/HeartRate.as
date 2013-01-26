@@ -50,7 +50,7 @@ package game.harp
 			}
 		}
 		
-		public function getYDistance(x:Number, y:Number):Number {
+		private function getYDistance(x:Number, y:Number):Number {
 			
 			var lowPoint:RatePoint, highPoint:RatePoint;
 			
@@ -66,6 +66,14 @@ package game.harp
 			var interpolatedY:Number = FP.lerp(lowPoint.y, highPoint.y, relativeX);
 			
 			return y - interpolatedY;
+		}
+		
+		public function getNormalizedYDistance(x:Number, y:Number):Number {
+			
+			var yDistance:Number	= getYDistance(x, y);
+			var absYDistance:Number	= Math.abs(yDistance);
+			
+			return absYDistance / yConstraint.difference;
 		}
 		
 		override public function update():void 

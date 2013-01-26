@@ -35,7 +35,7 @@ package world
 		{
 			super.update();
 			
-			var yDistance:Number = heartRate.getYDistance(cursor.x, cursor.y);
+			var yDistance:Number = heartRate.getNormalizedYDistance(cursor.x, cursor.y);
 			yDistanceDisplay.text = yDistance.toString();
 		}
 	}
