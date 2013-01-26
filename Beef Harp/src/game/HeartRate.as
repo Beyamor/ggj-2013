@@ -1,6 +1,8 @@
 package game 
 {
+	import flash.display.NativeMenuItem;
 	import game.harp.RatePoint;
+	import game.harp.YConstraint;
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.utils.Draw;
@@ -19,10 +21,14 @@ package game
 		// a higher x than the ones before them
 		private var points:Vector.<RatePoint> = new Vector.<RatePoint>;
 		
-		public function HeartRate() 
+		private var _yConstraint:YConstraint;		private function get yConstraint():YConstraint { return _yConstraint; }
+		
+		public function HeartRate(yConstraint:YConstraint) 
 		{
-			points.push(new RatePoint(0, Game.HEIGHT / 2));
-			points.push(new RatePoint(Game.WIDTH, Game.HEIGHT / 2));
+			_yConstraint = yConstraint;
+			
+			points.push(new RatePoint(0, yConstraint.center));
+			points.push(new RatePoint(Game.WIDTH, yConstraint.center));
 			
 			layer = Depths.HEART_RATE;
 		}

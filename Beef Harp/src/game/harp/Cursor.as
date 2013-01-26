@@ -14,15 +14,13 @@ package game.harp
 	 */
 	public class Cursor extends Entity 
 	{
-		private var _minY:Number;			private function get minY():Number { return _minY; }
-		private var _maxY:Number;			private function get maxY():Number { return _maxY; }
+		private var _yConstraint:YConstraint;		private function get yConstraint():YConstraint { return _yConstraint; }
 		
-		public function Cursor(x:Number, minY:Number, maxY:Number)
+		public function Cursor(x:Number, yConstraint:YConstraint)
 		{
-			_minY = minY;
-			_maxY = maxY;
+			_yConstraint = yConstraint;
 			
-			super(x, 0.5 * (minY + maxY), ImageMaker.centered(Sprites.HARP_CURSOR));
+			super(x, yConstraint.center, ImageMaker.centered(Sprites.HARP_CURSOR));
 			
 			layer = Depths.HARP_CURSOR;
 		}
@@ -37,7 +35,7 @@ package game.harp
 			
 			y += Game.HARP_CURSOR_SPEED * FP.elapsed * dY;
 			
-			y = FP.clamp(y, minY, maxY);
+			y = FP.clamp(y, yConstraint.min, yConstraint.max);
 		}
 	}
 
