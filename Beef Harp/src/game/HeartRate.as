@@ -63,6 +63,45 @@ package game
 			
 			return y - interpolatedY;
 		}
+		
+		override public function update():void 
+		{
+			super.update();
+			
+			for each (var point:RatePoint in points) {
+				
+				point.x -= rate * FP.elapsed;
+			}
+			
+			if (rightmostPointIsOnscreen()) {
+				
+				spawnNextPoint();
+			}
+		}
+		
+		private function get rightmostPoint():RatePoint {
+			
+			// again, assuming these things are already x-ordered
+			return points[points.length - 1];
+		}
+		
+		private function rightmostPointIsOnscreen():Boolean {
+			
+			return rightmostPoint.x <= FP.camera.x + FP.width;
+		}
+		
+		private function spawnNextPoint():void {
+			
+			var nextX:Number = rightmostPoint.x + 100; // ??
+			var nextY:Number = yConstraint.min + Math.random() * yConstraint.difference;
+			
+			points.push(new RatePoint(nextX, nextY));
+		}
+		
+		private function get rate():Number {
+			
+			return 100; // what am i even doing lol
+		}
 	}
 
 }
