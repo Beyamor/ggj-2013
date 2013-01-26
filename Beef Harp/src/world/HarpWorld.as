@@ -1,6 +1,7 @@
 package world 
 {
 	import game.harp.Cursor;
+	import game.harp.HeartSync;
 	import game.harp.YConstraint;
 	import game.harp.HeartRate;
 	import net.flashpunk.graphics.Text;
@@ -13,9 +14,10 @@ package world
 	 */
 	public class HarpWorld extends World 
 	{
+		private var sync:HeartSync;
 		private var cursor:Cursor;
 		private var heartRate:HeartRate;
-		private var yDistanceDisplay:Text;
+		private var syncDisplay:Text;
 		
 		public function HarpWorld() 
 		{
@@ -27,8 +29,10 @@ package world
 			heartRate = new HeartRate(yConstraint);
 			add(heartRate);
 			
-			yDistanceDisplay = new Text("", 20, 20, 100, 30);
-			addGraphic(yDistanceDisplay);
+			syncDisplay = new Text("", 20, 20, 100, 30);
+			addGraphic(syncDisplay);
+			
+			sync = new HeartSync;
 		}
 		
 		override public function update():void 
@@ -36,7 +40,9 @@ package world
 			super.update();
 			
 			var yDistance:Number = heartRate.getNormalizedYDistance(cursor.x, cursor.y);
-			yDistanceDisplay.text = yDistance.toString();
+			sync.addAccuracyPoint(yDistance);
+			
+			syncDisplay.text = sync.sync.toString();
 		}
 	}
 
