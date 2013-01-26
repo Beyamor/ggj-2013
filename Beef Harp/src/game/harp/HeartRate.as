@@ -1,4 +1,4 @@
-package game 
+package game.harp 
 {
 	import flash.display.NativeMenuItem;
 	import game.harp.DJ;

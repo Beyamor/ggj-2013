@@ -2,7 +2,7 @@ package world
 {
 	import game.harp.Cursor;
 	import game.harp.YConstraint;
-	import game.HeartRate;
+	import game.harp.HeartRate;
 	import net.flashpunk.graphics.Text;
 	import net.flashpunk.World;
 	import values.Game;
