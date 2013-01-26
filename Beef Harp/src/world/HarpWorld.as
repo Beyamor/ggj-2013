@@ -19,7 +19,7 @@ package world
 		
 		public function HarpWorld() 
 		{
-			var yConstraint:YConstraint = new YConstraint(Game.HEIGHT / 2 - 50, Game.HEIGHT / 2 + 50);
+			var yConstraint:YConstraint = new YConstraint(Game.HEIGHT / 2 - 80, Game.HEIGHT / 2 + 80);
 			
 			cursor = new Cursor(Game.WIDTH/2, yConstraint);
 			add(cursor);

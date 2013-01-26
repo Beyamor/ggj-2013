@@ -1,6 +1,7 @@
 package game 
 {
 	import flash.display.NativeMenuItem;
+	import game.harp.DJ;
 	import game.harp.RatePoint;
 	import game.harp.YConstraint;
 	import net.flashpunk.Entity;
@@ -21,11 +22,14 @@ package game
 		// a higher x than the ones before them
 		private var points:Vector.<RatePoint> = new Vector.<RatePoint>;
 		
+		private var _dj:DJ;							private function get dj():DJ { return _dj; }
+		
 		private var _yConstraint:YConstraint;		private function get yConstraint():YConstraint { return _yConstraint; }
 		
 		public function HeartRate(yConstraint:YConstraint) 
 		{
 			_yConstraint = yConstraint;
+			_dj = new DJ(yConstraint);
 			
 			points.push(new RatePoint(0, yConstraint.center));
 			points.push(new RatePoint(Game.WIDTH, yConstraint.center));
@@ -77,6 +81,11 @@ package game
 				
 				spawnNextPoint();
 			}
+			
+			if (secondToLeftmostPointIsOffscreen()) {
+				
+				removeLeftmostPoint();
+			}
 		}
 		
 		private function get rightmostPoint():RatePoint {
@@ -90,12 +99,26 @@ package game
 			return rightmostPoint.x <= FP.camera.x + FP.width;
 		}
 		
+		private function get secondToLeftmostPoint():RatePoint {
+			
+			return points[1];
+		}
+		
+		private function secondToLeftmostPointIsOffscreen():Boolean {
+			
+			if (points.length <= 2) return false;
+			
+			return secondToLeftmostPoint.x < FP.camera.x;
+		}
+		
+		private function removeLeftmostPoint():void {
+			
+			points.shift();
+		}
+		
 		private function spawnNextPoint():void {
 			
-			var nextX:Number = rightmostPoint.x + 100; // ??
-			var nextY:Number = yConstraint.min + Math.random() * yConstraint.difference;
-			
-			points.push(new RatePoint(nextX, nextY));
+			points.push(dj.dropNextBeat());
 		}
 		
 		private function get rate():Number {
