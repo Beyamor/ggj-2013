@@ -18,6 +18,14 @@ package util
 			
 			return image;
 		}
+		
+		public static function centered(source:*):Image {
+			
+			var image:Image = new Image(source);
+			image.centerOO();
+			
+			return image;
+		}
 	}
 
 }

@@ -7,7 +7,9 @@ package values
 	public class Game 
 	{
 		public static const WIDTH:uint = 800;
-		public static const HEIGHT:uint = 800;
+		public static const HEIGHT:uint = 600;
+		
+		public static const HARP_CURSOR_SPEED:Number = 200;
 	}
 
 }
