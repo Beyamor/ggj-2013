@@ -36,7 +36,7 @@ package
 		{
 			super.init();
 			
-			FP.world = new GameWorld;
+			FP.world = new BeefWorld;
 		}
 		
 	}

@@ -20,6 +20,9 @@ package values
 		
 		[Embed (source="/images/harp-cursor.png" )]
     	public static const SHOT:Class;
+		
+		[Embed (source="/images/enemy.png" )]
+    	public static const ENEMY:Class;
 	}
 
 }

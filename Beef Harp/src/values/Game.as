@@ -14,6 +14,9 @@ package values
 		public static const HARP_SPEED:Number			= 100;
 		public static const HARP_FOLLOW_DISTANCE:Number	= 64;
 		public static const BEEF_SHOT_DELAY:Number		= 1.2;
+		
+		public static const BASE_ENEMY_SPEED:Number			= 100;
+		public static const BASE_ENEMY_SPAWN_DELAY:Number	= 2;
 	}
 
 }
