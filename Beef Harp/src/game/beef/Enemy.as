@@ -17,6 +17,9 @@ package game.beef
 	{
 		private var health:Number = Game.ENEMY_HEALTH;
 		
+		private var flux:Number		= Math.random() * 1000;
+		private var vSpeed:Number	= 0;
+		
 		public function Enemy(x:Number, y:Number)
 		{
 			super(x, y, ImageMaker.centered(Sprites.ENEMY));
@@ -31,6 +34,10 @@ package game.beef
 		override public function update():void 
 		{
 			super.update();
+			
+			flux += FP.elapsed;
+			vSpeed = Math.sin(Math.PI * 2 * Game.ENEMY_CYCLE_RATE * flux) * Game.ENEMY_VERT_SPEED * FP.elapsed;
+			y += vSpeed;
 			
 			x -= Game.BASE_ENEMY_SPEED * FP.elapsed;
 		}

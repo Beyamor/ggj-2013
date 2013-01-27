@@ -16,6 +16,8 @@ package values
 		public static const BEEF_SHOT_DELAY:Number		= 1.2;
 		
 		public static const BASE_ENEMY_SPEED:Number			= 100;
+		public static const ENEMY_VERT_SPEED:Number			= 50;
+		public static const ENEMY_CYCLE_RATE:Number			= 0.5;
 		public static const BASE_ENEMY_SPAWN_DELAY:Number	= 2;
 		
 		public static const MIN_BEEF_STRENGTH:Number		= 0;
