@@ -5,6 +5,7 @@ package game.beef
 	import util.ImageMaker;
 	import values.Game;
 	import values.Sprites;
+	import values.Types;
 	
 	/**
 	 * ...
@@ -16,6 +17,8 @@ package game.beef
 		public function Enemy(x:Number, y:Number)
 		{
 			super(x, y, ImageMaker.centered(Sprites.ENEMY));
+			
+			type = Types.ENEMY;
 		}
 		
 		override public function update():void 

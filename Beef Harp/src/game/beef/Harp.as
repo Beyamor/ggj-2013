@@ -6,6 +6,7 @@ package game.beef
 	import values.Depths;
 	import values.Game;
 	import values.Sprites;
+	import values.Types;
 	
 	/**
 	 * ...
@@ -22,6 +23,7 @@ package game.beef
 			_beef = beef;
 			
 			layer = Depths.HARP;
+			type = Types.PLAYER;
 		}
 		
 		override public function update():void 

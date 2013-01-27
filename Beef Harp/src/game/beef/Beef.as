@@ -9,6 +9,7 @@ package game.beef
 	import values.Depths;
 	import values.Game;
 	import values.Sprites;
+	import values.Types;
 	
 	/**
 	 * ...
@@ -24,6 +25,7 @@ package game.beef
 			super(x, y, ImageMaker.centered(Sprites.BEEF));
 			
 			layer = Depths.BEEF;
+			type = Types.PLAYER;
 			
 			_boundingRect = boundingRect;
 			
