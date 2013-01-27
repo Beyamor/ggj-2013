@@ -1,5 +1,6 @@
 package game.beef 
 {
+	import flash.display.NativeMenuItem;
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import util.Hitboxer;
@@ -19,12 +20,16 @@ package game.beef
 		
 		private var team:String;
 		
-		public function Shot(x:Number, y:Number, speed:Number, directionInRadians:Number)
+		private var damage:Number;
+		
+		public function Shot(x:Number, y:Number, speed:Number, directionInRadians:Number, damage:Number)
 		{
 			super(x, y, ImageMaker.centered(Sprites.SHOT));
 			
 			xVel = speed * Math.cos(directionInRadians);
 			yVel = speed * Math.sin(directionInRadians);
+			
+			this.damage = damage;
 			
 			layer = Depths.SHOT;
 			
@@ -49,7 +54,7 @@ package game.beef
 				
 				var enemy:Enemy = enemyEntity as Enemy;
 				
-				enemy.takeHit();
+				enemy.takeHit(damage);
 				
 				if (world) world.remove(this);
 			}

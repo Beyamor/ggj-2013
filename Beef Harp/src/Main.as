@@ -2,6 +2,7 @@ package
 {
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import game.beef.EnemySpawner;
 	import net.flashpunk.Engine;
 	import net.flashpunk.FP;
 	import net.flashpunk.utils.Input;
@@ -16,8 +17,7 @@ package
 	 * @author beyamor
 	 */
 	public class Main extends Engine 
-	{
-		
+	{	
 		public function Main():void 
 		{
 			super(Game.WIDTH, Game.HEIGHT);
@@ -36,7 +36,7 @@ package
 		{
 			super.init();
 			
-			FP.world = new BeefWorld;
+			FP.world = new GameWorld;
 		}
 		
 	}

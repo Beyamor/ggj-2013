@@ -14,6 +14,7 @@ package game.beef
 	 */
 	public class Enemy extends Entity 
 	{
+		private var health:Number = Game.ENEMY_HEALTH;
 		
 		public function Enemy(x:Number, y:Number)
 		{
@@ -31,9 +32,15 @@ package game.beef
 			x -= Game.BASE_ENEMY_SPEED * FP.elapsed;
 		}
 		
-		public function takeHit():void {
+		public function takeHit(damage:Number):void {
 			
-			if (world) world.remove(this);
+			health -= damage;
+			trace("health left: " + health);
+			
+			if (health <= 0) {
+			
+				if (world) world.remove(this);
+			}
 		}
 	}
 

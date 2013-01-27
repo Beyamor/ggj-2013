@@ -1,6 +1,7 @@
 package game.beef 
 {
 	import flash.geom.Rectangle;
+	import game.harp.HeartSync;
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.utils.Input;
@@ -19,8 +20,13 @@ package game.beef
 	{
 		private var shotTimer:Timer;
 		private var _boundingRect:Rectangle;		private function get boundingRect():Rectangle { return _boundingRect; }
+		private var _heartSync:HeartSync;			private function get heartSync():HeartSync { return _heartSync; }
 		
-		public function Beef(x:Number, y:Number, boundingRect:Rectangle)
+		private function hasHeartSync():Boolean { return heartSync != null; }
+		
+		private var damage:Number = 0.5 * (Game.MAX_BEEF_STRENGTH + Game.MIN_BEEF_STRENGTH);
+		
+		public function Beef(x:Number, y:Number, boundingRect:Rectangle, heartSync:HeartSync=null)
 		{
 			super(x, y, ImageMaker.centered(Sprites.BEEF));
 			
@@ -28,6 +34,7 @@ package game.beef
 			type = Types.BEEF;
 			
 			_boundingRect = boundingRect;
+			_heartSync = heartSync;
 			
 			shotTimer = new Timer(Game.BEEF_SHOT_DELAY);
 		}
@@ -57,14 +64,24 @@ package game.beef
 			x = FP.clamp(x, boundingRect.left, boundingRect.right);
 			y = FP.clamp(y, boundingRect.top, boundingRect.bottom);
 			
+			// heart sync!
+			if (hasHeartSync()) matchHeartSync();
+			
 			// shooting
 			shotTimer.update();
 			
 			if (shotTimer.hasFired() && Input.check("beef-shot")) {
 				
 				shotTimer.reset();
-				world.add(new Shot(x, y, 100, 0));
+				world.add(new Shot(x, y, 100, 0, damage));
 			}
+		}
+		
+		private function matchHeartSync():void {
+			
+			damage = Game.MIN_BEEF_STRENGTH
+						+ (Game.MAX_BEEF_STRENGTH - Game.MIN_BEEF_STRENGTH)
+						* (heartSync.sync + 100) / 200;
 		}
 	}
 

@@ -17,6 +17,11 @@ package values
 		
 		public static const BASE_ENEMY_SPEED:Number			= 100;
 		public static const BASE_ENEMY_SPAWN_DELAY:Number	= 2;
+		
+		public static const MIN_BEEF_STRENGTH:Number		= 0;
+		public static const MAX_BEEF_STRENGTH:Number		= 3;
+		
+		public static const ENEMY_HEALTH:Number				= 2.5; // slightly less than max beef strength for noticeable overkill
 	}
 
 }
