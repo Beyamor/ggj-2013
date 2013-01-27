@@ -8,6 +8,7 @@ package game.beef
 	import values.Game;
 	import values.Sprites;
 	import values.Types;
+	import worlds.GameWorld;
 	
 	/**
 	 * ...
@@ -45,6 +46,11 @@ package game.beef
 			}
 			
 			if (collide(Types.ENEMY, x, y)) {
+				
+				if (world is GameWorld) {
+					
+					(world as GameWorld).harpDied();
+				}
 				
 				if (world) world.remove(this);
 			}

@@ -8,9 +8,9 @@ package
 	import net.flashpunk.utils.Input;
 	import net.flashpunk.utils.Key;
 	import values.Game;
-	import world.BeefWorld;
-	import world.GameWorld;
-	import world.HarpWorld;
+	import worlds.BeefWorld;
+	import worlds.GameWorld;
+	import worlds.HarpWorld;
 	
 	/**
 	 * ...

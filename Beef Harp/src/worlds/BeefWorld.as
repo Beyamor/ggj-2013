@@ -1,4 +1,4 @@
-package world 
+package worlds 
 {
 	import flash.geom.Rectangle;
 	import game.beef.Beef;

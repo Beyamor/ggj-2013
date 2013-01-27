@@ -1,4 +1,4 @@
-package world 
+package worlds 
 {
 	import flash.geom.Rectangle;
 	import game.beef.Beef;
@@ -68,6 +68,11 @@ package world
 			super.render();
 			
 			Draw.linePlus(0, Game.HEIGHT / 2, Game.WIDTH, Game.HEIGHT / 2, 0x333333, 1, 2);
+		}
+		
+		public function harpDied():void {
+			
+			
 		}
 	}
 
