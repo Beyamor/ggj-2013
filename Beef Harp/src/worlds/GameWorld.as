@@ -72,7 +72,7 @@ package worlds
 		
 		public function harpDied():void {
 			
-			
+			heartRate.registerLoss();
 		}
 	}
 
