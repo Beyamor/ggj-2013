@@ -7,6 +7,7 @@ package world
 	import game.harp.HeartRate;
 	import game.harp.HeartSync;
 	import game.harp.YConstraint;
+	import net.flashpunk.utils.Draw;
 	import net.flashpunk.World;
 	import values.Game;
 	
@@ -51,6 +52,13 @@ package world
 			
 			var yDistance:Number = heartRate.getNormalizedYDistance(cursor.x, cursor.y);
 			sync.addAccuracyPoint(yDistance);
+		}
+		
+		override public function render():void 
+		{
+			super.render();
+			
+			Draw.linePlus(0, Game.HEIGHT / 2, Game.WIDTH, Game.HEIGHT / 2, 0x333333, 1, 2);
 		}
 	}
 
