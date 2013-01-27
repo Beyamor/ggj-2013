@@ -2,6 +2,7 @@ package game.beef
 {
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
+	import util.Hitboxer;
 	import util.ImageMaker;
 	import values.Depths;
 	import values.Game;
@@ -24,6 +25,8 @@ package game.beef
 			
 			layer = Depths.HARP;
 			type = Types.PLAYER;
+			
+			Hitboxer.matchImage(this);
 		}
 		
 		override public function update():void 
@@ -39,6 +42,11 @@ package game.beef
 				
 				x += Game.HARP_SPEED * Math.cos(direction) * FP.elapsed;
 				y += Game.HARP_SPEED * Math.sin(direction) * FP.elapsed;
+			}
+			
+			if (collide(Types.ENEMY, x, y)) {
+				
+				if (world) world.remove(this);
 			}
 		}
 	}
