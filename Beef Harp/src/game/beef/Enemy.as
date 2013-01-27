@@ -3,6 +3,7 @@ package game.beef
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import util.ImageMaker;
+	import values.Depths;
 	import values.Game;
 	import values.Sprites;
 	import values.Types;
@@ -23,6 +24,8 @@ package game.beef
 			type = Types.ENEMY;
 			
 			Hitboxer.matchImage(this);
+			
+			layer = Depths.ENEMY;
 		}
 		
 		override public function update():void 

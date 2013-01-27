@@ -30,6 +30,8 @@ package
 			Input.define("beef-left", Key.A);
 			Input.define("beef-right", Key.D);
 			Input.define("beef-shot", Key.SPACE);
+			
+			Input.define("restart", Key.R);
 		}
 		
 		override public function init():void 

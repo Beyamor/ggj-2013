@@ -4,6 +4,7 @@ package game.harp
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Graphiclist;
 	import net.flashpunk.graphics.Image;
+	import net.flashpunk.tweens.misc.VarTween;
 	import net.flashpunk.utils.Input;
 	import util.ImageMaker;
 	import values.Depths;
@@ -20,6 +21,12 @@ package game.harp
 		private var _heartSync:HeartSync;			private function get heartSync():HeartSync { return _heartSync; }
 		
 		private var heartSyncDisplay:Image;
+		private var hasLost:Boolean = false;
+		
+		private var cursor:Image;
+		public var cursorAlpha:Number = 1;
+		private var cursorAlphaTweener:VarTween = new VarTween();
+		private var cursorAlphaTweenerHasStarted:Boolean = false;
 		
 		public function Cursor(x:Number, yConstraint:YConstraint, heartSync:HeartSync)
 		{
@@ -29,18 +36,24 @@ package game.harp
 			var graphics:Graphiclist = new Graphiclist;
 			
 			//graphics.add(ImageMaker.centered(Sprites.HARP_CURSOR));
+			cursor = ImageMaker.centeredAndConstrained(Sprites.HARP, 16, 16);
+			
 			heartSyncDisplay = ImageMaker.centered(Sprites.CURSOR_HEART);
 			graphics.add(heartSyncDisplay);
-			graphics.add(ImageMaker.centeredAndConstrained(Sprites.HARP, 16, 16));
+			graphics.add(cursor);
 			
 			super(x, yConstraint.center, graphics);
 			
 			layer = Depths.HARP_CURSOR;
+			
+			cursorAlphaTweener.tween(this, "cursorAlpha", 0, 4);
 		}
 		
 		override public function update():void 
 		{
 			super.update();
+			
+			cursor.alpha = cursorAlpha;
 			
 			var dY:Number = 0;
 			if (Input.check("harp-up"))		dY -= 1;
@@ -66,6 +79,17 @@ package game.harp
 				heartSyncDisplay.color = FP.colorLerp(0xB3B1B1, 0x000000, t);
 				heartSyncDisplay.alpha = FP.lerp(0.9, 0, t);
 			}
+			
+			if (hasLost && !cursorAlphaTweenerHasStarted && heartSync.sync <= -100) {
+				
+				world.addTween(cursorAlphaTweener, true);
+				cursorAlphaTweenerHasStarted = true;
+			}
+		}
+		
+		public function registerLoss():void {
+			
+			hasLost = true;
 		}
 	}
 
