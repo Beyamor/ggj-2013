@@ -6,6 +6,7 @@ package game.beef
 	import util.Hitboxer;
 	import util.ImageMaker;
 	import values.Depths;
+	import values.Game;
 	import values.Sprites;
 	import values.Types;
 	
@@ -24,12 +25,15 @@ package game.beef
 		
 		public function Shot(x:Number, y:Number, speed:Number, directionInRadians:Number, damage:Number)
 		{
-			super(x, y, ImageMaker.centered(Sprites.SHOT));
+			// well this is just going to have to work
+			var spriteDim:Number = 4 + 12 * ((damage - Game.MIN_BEEF_STRENGTH) / (Game.MAX_BEEF_STRENGTH - Game.MIN_BEEF_STRENGTH));
+			
+			super(x, y, ImageMaker.centeredAndConstrained(Sprites.SHOT, spriteDim, spriteDim));
 			
 			xVel = speed * Math.cos(directionInRadians);
 			yVel = speed * Math.sin(directionInRadians);
 			
-			this.damage = damage;
+			this.damage = damage;		
 			
 			layer = Depths.SHOT;
 			
