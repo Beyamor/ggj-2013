@@ -7,6 +7,7 @@ package
 	import net.flashpunk.utils.Input;
 	import net.flashpunk.utils.Key;
 	import values.Game;
+	import world.BeefWorld;
 	import world.HarpWorld;
 	
 	/**
@@ -22,13 +23,18 @@ package
 			
 			Input.define("harp-up", Key.UP);
 			Input.define("harp-down", Key.DOWN);
+			
+			Input.define("beef-up", Key.W);
+			Input.define("beef-down", Key.S);
+			Input.define("beef-left", Key.A);
+			Input.define("beef-right", Key.D);
 		}
 		
 		override public function init():void 
 		{
 			super.init();
 			
-			FP.world = new HarpWorld;
+			FP.world = new BeefWorld;
 		}
 		
 	}
