@@ -49,7 +49,7 @@ package game.beef
 			if (shotTimer.hasFired() && Input.check("beef-shot")) {
 				
 				shotTimer.reset();
-				world.add(new Shot(x, y, 100, -Math.PI / 2));
+				world.add(new Shot(x, y, 100, 0));
 			}
 		}
 	}

@@ -3,6 +3,7 @@ package game.beef
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import util.ImageMaker;
+	import values.Depths;
 	import values.Sprites;
 	
 	/**
@@ -20,6 +21,8 @@ package game.beef
 			
 			xVel = speed * Math.cos(directionInRadians);
 			yVel = speed * Math.sin(directionInRadians);
+			
+			layer = Depths.SHOT;
 		}
 		
 		override public function update():void 

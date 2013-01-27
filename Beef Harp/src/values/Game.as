@@ -11,8 +11,9 @@ package values
 		
 		public static const HARP_CURSOR_SPEED:Number	= 200;
 		public static const BEEF_SPEED:Number			= 125;
-		
-		public static const BEEF_SHOT_DELAY:Number		= 0.25;
+		public static const HARP_SPEED:Number			= 100;
+		public static const HARP_FOLLOW_DISTANCE:Number	= 64;
+		public static const BEEF_SHOT_DELAY:Number		= 1.2;
 	}
 
 }

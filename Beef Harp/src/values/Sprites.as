@@ -12,6 +12,9 @@ package values
 		[Embed (source="/images/beef.png" )]
     	public static const BEEF:Class;
 		
+		[Embed (source="/images/harp.png" )]
+    	public static const HARP:Class;
+		
 		[Embed (source="/images/harp-cursor.png" )]
     	public static const SHOT:Class;
 	}
