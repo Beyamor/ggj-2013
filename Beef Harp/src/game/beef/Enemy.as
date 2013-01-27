@@ -8,6 +8,7 @@ package game.beef
 	import values.Sprites;
 	import values.Types;
 	import util.Hitboxer;
+	import worlds.GameWorld;
 	
 	/**
 	 * ...
@@ -49,6 +50,11 @@ package game.beef
 			
 			if (health <= 0) {
 			
+				if (world is GameWorld) {
+					
+					(world as GameWorld).score.increase();
+				}
+				
 				if (world) world.remove(this);
 			}
 		}

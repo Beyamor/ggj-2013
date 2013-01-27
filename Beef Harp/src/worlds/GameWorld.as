@@ -4,6 +4,7 @@ package worlds
 	import game.beef.Beef;
 	import game.beef.EnemySpawner;
 	import game.beef.Harp;
+	import game.beef.Score;
 	import game.harp.Cursor;
 	import game.harp.HeartRate;
 	import game.harp.HeartSync;
@@ -35,6 +36,8 @@ package worlds
 		private var restartTimer:Timer = new Timer(4);
 		
 		private var restartNotice:Text;
+		
+		public var score:Score;
 		
 		public function GameWorld() 
 		{
@@ -68,6 +71,9 @@ package worlds
 										0.5 * (beefBounds.top + beefBounds.bottom) - 32);
 			restartNotice.alpha = 0;
 			addGraphic(restartNotice, Depths.OVERLAY);
+			
+			score = new Score(10, FP.height/2+10);
+			add(score);
 		}
 		
 		override public function update():void 
