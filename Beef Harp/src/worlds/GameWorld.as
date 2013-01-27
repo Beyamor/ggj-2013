@@ -55,10 +55,10 @@ package worlds
 			
 			var yConstraint:YConstraint = new YConstraint(0 + spacer, Game.HEIGHT / 2 - spacer);
 			
-			heartRate = new HeartRate(yConstraint);
+			heartRate = new HeartRate(sync, yConstraint);
 			add(heartRate);
 			
-			cursor = new Cursor(50, yConstraint, sync);
+			cursor = new Cursor(80, yConstraint, sync);
 			add(cursor);
 			
 			enemySpawner = new EnemySpawner(this, beefBounds);

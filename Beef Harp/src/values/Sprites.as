@@ -23,6 +23,9 @@ package values
 		
 		[Embed (source="/images/enemy.png" )]
     	public static const ENEMY:Class;
+		
+		[Embed (source="/images/sparkle.png" )]
+    	public static const SPARKLE:Class;
 	}
 
 }

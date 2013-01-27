@@ -7,6 +7,7 @@ package game.harp
 	import net.flashpunk.tweens.misc.VarTween;
 	import net.flashpunk.utils.Input;
 	import util.ImageMaker;
+	import util.Timer;
 	import values.Depths;
 	import values.Game;
 	import values.Sprites;
@@ -27,6 +28,8 @@ package game.harp
 		public var cursorAlpha:Number = 1;
 		private var cursorAlphaTweener:VarTween = new VarTween();
 		private var cursorAlphaTweenerHasStarted:Boolean = false;
+		
+		private var sparkleTimer:Timer = new Timer(Game.MIN_SPARKLE_TIME);
 		
 		public function Cursor(x:Number, yConstraint:YConstraint, heartSync:HeartSync)
 		{
@@ -84,6 +87,19 @@ package game.harp
 				
 				world.addTween(cursorAlphaTweener, true);
 				cursorAlphaTweenerHasStarted = true;
+			}
+			
+			sparkleTimer.update();
+			if (!hasLost && heartSync.isInSync) {
+				
+				if (sparkleTimer.hasFired()) {
+					
+					sparkleTimer = new Timer(Game.MIN_SPARKLE_TIME + Math.random() * (Game.MAX_SPARKLE_TIME - Game.MIN_SPARKLE_TIME));
+					world.add(new Sparkle(
+									x - 16,
+									y - cursor.height / 4 + Math.random() * cursor.height/2));
+									
+				}
 			}
 		}
 		

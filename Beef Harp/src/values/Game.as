@@ -22,6 +22,13 @@ package values
 		public static const MAX_BEEF_STRENGTH:Number		= 3;
 		
 		public static const ENEMY_HEALTH:Number				= 2.5; // slightly less than max beef strength for noticeable overkill
+		
+		public static const SPARKLE_SPEED:Number			= 100;
+		public static const MIN_SPARKLE_TIME:Number			= 0.05;
+		public static const MAX_SPARKLE_TIME:Number			= 0.2;
+		public static const MIN_SPARKLE_DURATION:Number		= 0.4;
+		public static const MAX_SPARKLE_DURATION:Number		= 1;
+		
 	}
 
 }

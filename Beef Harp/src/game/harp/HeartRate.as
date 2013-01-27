@@ -27,6 +27,7 @@ package game.harp
 		private var _dj:DJ;							private function get dj():DJ { return _dj; }
 		
 		private var _yConstraint:YConstraint;		private function get yConstraint():YConstraint { return _yConstraint; }
+		private var _sync:HeartSync;				private function get sync():HeartSync { return _sync; }
 		
 		private var rate:Number = 100;
 		
@@ -34,8 +35,9 @@ package game.harp
 		
 		private var colorTweener:ColorTween = new ColorTween();
 		
-		public function HeartRate(yConstraint:YConstraint) 
+		public function HeartRate(sync:HeartSync, yConstraint:YConstraint) 
 		{
+			_sync = sync;
 			_yConstraint = yConstraint;
 			_dj = new DJ(yConstraint);
 			

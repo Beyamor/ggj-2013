@@ -7,13 +7,14 @@ package game.harp
 	 */
 	public class HeartSync 
 	{
-		// within this, sync is getting stronger
-		private static const GOOD_DISTANCE:Number = 0.025;
+		// inside this percent, sync is getting stronger
+		private static const SYNC_DISTANCE:Number = 0.08;
 		
-		// outside this, sync is getting weaker
-		private static const BAD_DISTANCE:Number = 0.025;
+		private static const SYNC_GAIN_RATE:Number = 0.1;
+		private static const SYNC_LOSS_RATE:Number = 2;
 		
-		private var _sync:Number = 0;		public function get sync():Number { return _sync; }
+		private var _isInSync:Boolean = true; 	public function get isInSync():Boolean { return _isInSync; }
+		private var _sync:Number = 0;			public function get sync():Number { return _sync; }
 		
 		private var hasLost:Boolean = false;
 		
@@ -36,19 +37,22 @@ package game.harp
 			
 			if (hasLost) return;
 			
-			// this is pretty well magic
-			if (distance <= GOOD_DISTANCE) {
+			_isInSync = (distance <= SYNC_DISTANCE);
+			
+			// t is a number
+			// haha that comment
+			var t:Number; 
+			
+			if (isInSync) {
 				
-				var relativeGoodness:Number = (GOOD_DISTANCE - distance) / (GOOD_DISTANCE); // [0, 1], 1 -> most good
-				
-				_sync += relativeGoodness * 0.4; // magic
+				t = (1 - distance / SYNC_DISTANCE)
+				_sync += t * SYNC_GAIN_RATE;
 			}
 			
-			else if (distance >= BAD_DISTANCE) {
+			else {
 				
-				var relativeBadness:Number = (distance - BAD_DISTANCE) / (1 - BAD_DISTANCE); // [0, 1], 1 -> most bad
-				
-				_sync -= relativeBadness * 5; // more magic 
+				t = (distance - SYNC_DISTANCE) / (1 - SYNC_DISTANCE);
+				_sync -= t * SYNC_LOSS_RATE;
 			}
 			
 			_sync = FP.clamp(_sync, -100, 100);
