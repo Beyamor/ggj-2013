@@ -91,7 +91,7 @@ package worlds
 					restartNoticeTweener.tween(restartNotice, "alpha", 1, 1);
 					addTween(restartNoticeTweener);
 					
-					if (Input.check("restart")) FP.world = new GameWorld;
+					if (Input.check("restart")) FP.world = new IntroScreen;
 				}
 			}
 		}

@@ -11,6 +11,7 @@ package
 	import worlds.BeefWorld;
 	import worlds.GameWorld;
 	import worlds.HarpWorld;
+	import worlds.IntroScreen;
 	
 	/**
 	 * ...
@@ -38,8 +39,7 @@ package
 		{
 			super.init();
 			
-			FP.console.enable();
-			FP.world = new GameWorld;
+			FP.world = new IntroScreen;
 		}
 		
 	}
