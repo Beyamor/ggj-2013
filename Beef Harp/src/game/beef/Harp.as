@@ -14,9 +14,9 @@ package game.beef
 	{
 		private var _beef:Beef;			private function get beef():Beef { return _beef; }
 		
-		public function Harp(x:Number, y:Number, beef:Beef)
+		public function Harp(beef:Beef)
 		{
-			super(x, y, ImageMaker.centered(Sprites.HARP));
+			super(beef.x - Game.HARP_FOLLOW_DISTANCE, beef.y, ImageMaker.centered(Sprites.HARP));
 			
 			_beef = beef;
 		}

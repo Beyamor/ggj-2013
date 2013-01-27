@@ -8,6 +8,7 @@ package
 	import net.flashpunk.utils.Key;
 	import values.Game;
 	import world.BeefWorld;
+	import world.GameWorld;
 	import world.HarpWorld;
 	
 	/**
@@ -35,7 +36,7 @@ package
 		{
 			super.init();
 			
-			FP.world = new BeefWorld;
+			FP.world = new GameWorld;
 		}
 		
 	}
