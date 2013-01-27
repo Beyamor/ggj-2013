@@ -6,8 +6,9 @@ package values
 	 */
 	public class Types 
 	{
-		public static const PLAYER:String		= "player";
-		public static const ENEMY:String		= "enemy";
+		public static const BEEF:String		= "beef";
+		public static const HARP:String		= "harp";
+		public static const ENEMY:String	= "enemy";
 	}
 
 }

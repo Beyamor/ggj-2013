@@ -24,7 +24,7 @@ package game.beef
 			_beef = beef;
 			
 			layer = Depths.HARP;
-			type = Types.PLAYER;
+			type = Types.HARP;
 			
 			Hitboxer.matchImage(this);
 		}

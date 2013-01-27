@@ -25,7 +25,7 @@ package game.beef
 			super(x, y, ImageMaker.centered(Sprites.BEEF));
 			
 			layer = Depths.BEEF;
-			type = Types.PLAYER;
+			type = Types.BEEF;
 			
 			_boundingRect = boundingRect;
 			
