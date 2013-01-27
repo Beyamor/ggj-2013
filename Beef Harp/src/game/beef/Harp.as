@@ -3,6 +3,7 @@ package game.beef
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import util.ImageMaker;
+	import values.Depths;
 	import values.Game;
 	import values.Sprites;
 	
@@ -19,6 +20,8 @@ package game.beef
 			super(beef.x - Game.HARP_FOLLOW_DISTANCE, beef.y, ImageMaker.centered(Sprites.HARP));
 			
 			_beef = beef;
+			
+			layer = Depths.HARP;
 		}
 		
 		override public function update():void 

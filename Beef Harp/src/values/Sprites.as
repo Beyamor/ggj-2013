@@ -9,6 +9,9 @@ package values
 		[Embed (source="/images/harp-cursor.png" )]
     	public static const HARP_CURSOR:Class;
 		
+		[Embed (source="/images/cursor-heart.png" )]
+    	public static const CURSOR_HEART:Class;
+		
 		[Embed (source="/images/beef.png" )]
     	public static const BEEF:Class;
 		

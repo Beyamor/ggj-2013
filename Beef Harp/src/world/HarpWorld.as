@@ -23,7 +23,9 @@ package world
 		{
 			var yConstraint:YConstraint = new YConstraint(Game.HEIGHT / 2 - 80, Game.HEIGHT / 2 + 80);
 			
-			cursor = new Cursor(Game.WIDTH/2, yConstraint);
+			sync = new HeartSync;
+			
+			cursor = new Cursor(Game.WIDTH/2, yConstraint, sync);
 			add(cursor);
 			
 			heartRate = new HeartRate(yConstraint);
@@ -31,8 +33,6 @@ package world
 			
 			syncDisplay = new Text("", 20, 20, 100, 30);
 			addGraphic(syncDisplay);
-			
-			sync = new HeartSync;
 		}
 		
 		override public function update():void 

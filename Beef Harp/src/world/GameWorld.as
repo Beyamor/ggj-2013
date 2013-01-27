@@ -41,7 +41,7 @@ package world
 			heartRate = new HeartRate(yConstraint);
 			add(heartRate);
 			
-			cursor = new Cursor(50, yConstraint);
+			cursor = new Cursor(50, yConstraint, sync);
 			add(cursor);
 		}
 		

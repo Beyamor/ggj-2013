@@ -8,12 +8,12 @@ package game.harp
 	public class HeartSync 
 	{
 		// within this, sync is getting stronger
-		private static const GOOD_DISTANCE:Number = 0.05;
+		private static const GOOD_DISTANCE:Number = 0.025;
 		
 		// outside this, sync is getting weaker
 		private static const BAD_DISTANCE:Number = 0.15;
 		
-		public var _sync:Number = 0;		public function get sync():Number { return _sync; }
+		private var _sync:Number = 0;		public function get sync():Number { return _sync; }
 		
 		public function HeartSync() 
 		{
@@ -29,14 +29,14 @@ package game.harp
 				
 				var relativeGoodness:Number = (GOOD_DISTANCE - distance) / (GOOD_DISTANCE); // [0, 1], 1 -> most good
 				
-				_sync += relativeGoodness * 0.2; // magic
+				_sync += relativeGoodness * 0.4; // magic
 			}
 			
 			else if (distance >= BAD_DISTANCE) {
 				
 				var relativeBadness:Number = (distance - BAD_DISTANCE) / (1 - BAD_DISTANCE); // [0, 1], 1 -> most bad
 				
-				_sync -= relativeBadness * 3; // more magic 
+				_sync -= relativeBadness * 5; // more magic 
 			}
 			
 			_sync = FP.clamp(_sync, -100, 100);

@@ -6,6 +6,7 @@ package game.beef
 	import net.flashpunk.utils.Input;
 	import util.ImageMaker;
 	import util.Timer;
+	import values.Depths;
 	import values.Game;
 	import values.Sprites;
 	
@@ -21,6 +22,8 @@ package game.beef
 		public function Beef(x:Number, y:Number, boundingRect:Rectangle)
 		{
 			super(x, y, ImageMaker.centered(Sprites.BEEF));
+			
+			layer = Depths.BEEF;
 			
 			_boundingRect = boundingRect;
 			
