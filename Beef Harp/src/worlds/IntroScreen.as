@@ -27,7 +27,7 @@ package worlds
 		{
 			super.update();
 			
-			if (Input.pressed(Key.ANY)) FP.world = new GameWorld;
+			if (Input.pressed(Key.ANY)) FP.world = new Tutorial;
 		}
 	}
 

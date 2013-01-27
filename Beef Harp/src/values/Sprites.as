@@ -26,6 +26,12 @@ package values
 		
 		[Embed (source="/images/sparkle.png" )]
     	public static const SPARKLE:Class;
+		
+		[Embed (source="/images/beef-intro.png" )]
+    	public static const BEEF_INTRO:Class;
+		
+		[Embed (source="/images/harp-intro.png" )]
+    	public static const HARP_INTRO:Class;
 	}
 
 }
