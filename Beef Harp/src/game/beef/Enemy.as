@@ -6,6 +6,7 @@ package game.beef
 	import values.Game;
 	import values.Sprites;
 	import values.Types;
+	import util.Hitboxer;
 	
 	/**
 	 * ...
@@ -19,6 +20,8 @@ package game.beef
 			super(x, y, ImageMaker.centered(Sprites.ENEMY));
 			
 			type = Types.ENEMY;
+			
+			Hitboxer.matchImage(this);
 		}
 		
 		override public function update():void 
@@ -26,6 +29,11 @@ package game.beef
 			super.update();
 			
 			x -= Game.BASE_ENEMY_SPEED * FP.elapsed;
+		}
+		
+		public function takeHit():void {
+			
+			if (world) world.remove(this);
 		}
 	}
 
