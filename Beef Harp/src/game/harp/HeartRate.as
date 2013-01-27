@@ -26,6 +26,8 @@ package game.harp
 		
 		private var _yConstraint:YConstraint;		private function get yConstraint():YConstraint { return _yConstraint; }
 		
+		private var rate:Number = 100;
+		
 		public function HeartRate(yConstraint:YConstraint) 
 		{
 			_yConstraint = yConstraint;
@@ -94,6 +96,8 @@ package game.harp
 				
 				removeLeftmostPoint();
 			}
+			
+			rate += 0.01; // magic
 		}
 		
 		private function get rightmostPoint():RatePoint {
@@ -127,11 +131,6 @@ package game.harp
 		private function spawnNextPoint():void {
 			
 			points.push(dj.dropNextBeat());
-		}
-		
-		private function get rate():Number {
-			
-			return 100; // what am i even doing lol
 		}
 	}
 
