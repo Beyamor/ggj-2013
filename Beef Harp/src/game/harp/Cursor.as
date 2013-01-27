@@ -62,8 +62,11 @@ package game.harp
 			if (Input.check("harp-up"))		dY -= 1;
 			if (Input.check("harp-down"))	dY += 1;
 			
-			y += Game.HARP_CURSOR_SPEED * FP.elapsed * dY;
-			y = FP.clamp(y, yConstraint.min, yConstraint.max);
+			if (!hasLost) {
+			
+				y += Game.HARP_CURSOR_SPEED * FP.elapsed * dY;
+				y = FP.clamp(y, yConstraint.min, yConstraint.max);
+			}
 			
 			var t:Number;
 			
