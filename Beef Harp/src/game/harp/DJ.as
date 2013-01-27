@@ -15,12 +15,12 @@ package game.harp
 		// and everything is in unitless measurements
 		private var beats:Array =	[	{ x: 0, y: 0 },
 										{ x: 4, y: 0 },
-										{ x: 1, y: 3.5 },
-										{ x: 2, y: -2.5 },
-										{ x: 2, y: 1 },
-										{ x: 1, y: -0.75 },
-										{ x: 0.5, y: 0 },
-										{ x: 2.5, y: 0 } ];
+										{ x: 3, y: 4.5 },
+										{ x: 3, y: -2.5 },
+										{ x: 3, y: 1 },
+										{ x: 2, y: -0.75 },
+										{ x: 1, y: 0 },
+										{ x: 1.5, y: 0 } ];
 										
 		private var _yScale:Number;
 		

@@ -18,7 +18,7 @@ package values
 		[Embed (source="/images/harp.png" )]
     	public static const HARP:Class;
 		
-		[Embed (source="/images/harp-cursor.png" )]
+		[Embed (source="/images/shot.png" )]
     	public static const SHOT:Class;
 		
 		[Embed (source="/images/enemy.png" )]

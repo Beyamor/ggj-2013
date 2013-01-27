@@ -14,7 +14,7 @@ package util
 			var image:Image = entity.graphic as Image;
 			if (!image) return entity;
 			
-			entity.setHitbox(image.width, image.height, image.x, image.y);
+			entity.setHitbox(image.width, image.height, -image.x, -image.y);
 			
 			return entity;
 		}

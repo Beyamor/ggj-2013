@@ -66,13 +66,14 @@ package game.beef
 			
 			// heart sync!
 			if (hasHeartSync()) matchHeartSync();
-			
+
 			// shooting
 			shotTimer.update();
 			
 			if (shotTimer.hasFired() && Input.check("beef-shot")) {
 				
 				shotTimer.reset();
+				trace(damage);
 				world.add(new Shot(x, y, 100, 0, damage));
 			}
 		}

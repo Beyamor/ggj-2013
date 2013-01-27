@@ -28,9 +28,10 @@ package game.harp
 			
 			var graphics:Graphiclist = new Graphiclist;
 			
-			graphics.add(ImageMaker.centered(Sprites.HARP_CURSOR));
+			//graphics.add(ImageMaker.centered(Sprites.HARP_CURSOR));
 			heartSyncDisplay = ImageMaker.centered(Sprites.CURSOR_HEART);
 			graphics.add(heartSyncDisplay);
+			graphics.add(ImageMaker.centeredAndConstrained(Sprites.HARP, 16, 16));
 			
 			super(x, yConstraint.center, graphics);
 			
