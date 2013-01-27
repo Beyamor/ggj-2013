@@ -4,6 +4,7 @@ package game.beef
 	import net.flashpunk.FP;
 	import net.flashpunk.utils.Input;
 	import util.ImageMaker;
+	import util.Timer;
 	import values.Game;
 	import values.Sprites;
 	
@@ -13,10 +14,13 @@ package game.beef
 	 */
 	public class Beef extends Entity 
 	{
+		private var shotTimer:Timer;
 		
 		public function Beef(x:Number, y:Number)
 		{
 			super(x, y, ImageMaker.centered(Sprites.BEEF));
+			
+			shotTimer = new Timer(Game.BEEF_SHOT_DELAY);
 		}
 		
 		override public function update():void 
@@ -39,6 +43,14 @@ package game.beef
 			
 			x += dx * Game.BEEF_SPEED * FP.elapsed;
 			y += dy * Game.BEEF_SPEED * FP.elapsed;
+			
+			shotTimer.update();
+			
+			if (shotTimer.hasFired() && Input.check("beef-shot")) {
+				
+				shotTimer.reset();
+				world.add(new Shot(x, y, 100, -Math.PI / 2));
+			}
 		}
 	}
 

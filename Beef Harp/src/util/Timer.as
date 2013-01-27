@@ -10,9 +10,9 @@ package util
 		private var period:Number;
 		private var elapsed:Number;
 		
-		public function Timer(period:Number)
+		public function Timer(periodInSeconds:Number)
 		{
-			this.period = period;
+			this.period = periodInSeconds;
 			this.elapsed = 0;
 		}
 		
